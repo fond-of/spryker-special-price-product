@@ -1,8 +1,9 @@
 <?php
 
-namespace FondOfSpryker\Zed\SpecialPriceProductBusinessFactory\Business;
+namespace FondOfSpryker\Zed\SpecialPriceProduct\Business;
 
 use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
+use FondOfSpryker\Zed\SpecialPriceProduct\Business\Manager\PriceManager;
 
 
 /**
@@ -10,8 +11,11 @@ use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
  */
 class SpecialPriceProductBusinessFactory extends AbstractBusinessFactory
 {
+    /**
+     * @return \FondOfSpryker\Zed\SpecialPriceProduct\Business\Manager\PriceManagerInterface
+     */
     public function createPriceManager()
     {
-
+        return new PriceManager();
     }
 }

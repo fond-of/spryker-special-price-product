@@ -1,6 +1,6 @@
 <?php
 
-namespace FondOfSpryker\Zed\SpecialPriceProductFacade\Business;
+namespace FondOfSpryker\Zed\SpecialPriceProduct\Business;
 
 use Generated\Shared\Transfer\CartChangeTransfer;
 use Spryker\Zed\Kernel\Business\AbstractFacade;
@@ -16,11 +16,10 @@ class SpecialPriceProductFacade extends AbstractFacade implements SpecialPricePr
      * @api
      *
      * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     * @param string|null $priceType
      *
      * @return \Generated\Shared\Transfer\CartChangeTransfer
      */
-    public function addPriceToItems(CartChangeTransfer $cartChangeTransfer, $priceType = null)
+    public function addPriceToItems(CartChangeTransfer $cartChangeTransfer)
     {
         return $this->getFactory()->createPriceManager()->addPriceToItems($cartChangeTransfer);
     }
