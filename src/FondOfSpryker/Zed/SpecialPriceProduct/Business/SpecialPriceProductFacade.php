@@ -11,16 +11,23 @@ use Spryker\Zed\Kernel\Business\AbstractFacade;
 class SpecialPriceProductFacade extends AbstractFacade implements SpecialPriceProductFacadeInterface
 {
     /**
-     * @inheritdoc
+     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
      *
-     * @api
+     * @return \Generated\Shared\Transfer\CartChangeTransfer
+     */
+    public function expandItems(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
+    {
+        return $this->getFactory()->createProductExpander()->expandItems($cartChangeTransfer);
+    }
+
+    /**
      *
      * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
      *
      * @return \Generated\Shared\Transfer\CartChangeTransfer
      */
-    public function addPriceToItems(CartChangeTransfer $cartChangeTransfer)
+    public function addSpecialPriceToItems(CartChangeTransfer $cartChangeTransfer)
     {
-        return $this->getFactory()->createPriceManager()->addPriceToItems($cartChangeTransfer);
+        return $this->getFactory()->createPriceManager()->addSpecialPriceToItems($cartChangeTransfer);
     }
 }

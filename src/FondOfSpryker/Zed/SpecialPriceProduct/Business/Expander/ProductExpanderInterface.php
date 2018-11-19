@@ -1,15 +1,15 @@
 <?php
 
-namespace FondOfSpryker\Zed\SpecialPriceProduct\Business;
+namespace FondOfSpryker\Zed\SpecialPriceProduct\Business\Expander;
 
 use Generated\Shared\Transfer\CartChangeTransfer;
 
-interface SpecialPriceProductFacadeInterface
+interface ProductExpanderInterface
 {
     /**
      * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
      *
      * @return \Generated\Shared\Transfer\CartChangeTransfer
      */
-    public function addSpecialPriceToItems(CartChangeTransfer $cartChangeTransfer);
+    public function expandItems(CartChangeTransfer $cartChangeTransfer);
 }

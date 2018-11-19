@@ -6,7 +6,7 @@ use Generated\Shared\Transfer\CartChangeTransfer;
 use Spryker\Zed\Cart\Dependency\ItemExpanderPluginInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
-class CartItemSpecialPriceExpanderPlugin extends AbstractPlugin implements ItemExpanderPluginInterface
+class ProductSpecialPriceCartPlugin extends AbstractPlugin implements ItemExpanderPluginInterface
 {
     /**
      * {@inheritdoc}
@@ -19,6 +19,6 @@ class CartItemSpecialPriceExpanderPlugin extends AbstractPlugin implements ItemE
      */
     public function expandItems(CartChangeTransfer $cartChangeTransfer)
     {
-        return $this->getFacade()->addSpecialPriceToItems($cartChangeTransfer);
+        return $this->getFacade()->expandItems($cartChangeTransfer);
     }
 }

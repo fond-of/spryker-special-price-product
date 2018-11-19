@@ -7,6 +7,8 @@ use Spryker\Zed\Kernel\Container;
 
 class SpecialPriceProductDependencyProvider extends AbstractBundleDependencyProvider
 {
+    const PRODUCT_FACADE = 'PRODUCT_FACADE';
+
     /**
      * @param \Spryker\Zed\Kernel\Container $container
      *
@@ -14,8 +16,23 @@ class SpecialPriceProductDependencyProvider extends AbstractBundleDependencyProv
      */
     public function provideBusinessLayerDependencies(Container $container)
     {
+        $this->provideProductFacade($container);
+
         return $container;
     }
 
+    /**
+     * @param \Spryker\Yves\Kernel\Container $container
+     *
+     * @return \Spryker\Yves\Kernel\Container $container
+     */
+    protected function provideProductFacade(Container $container)
+    {
+        $container[static::PRODUCT_FACADE] = function (Container $container) {
+            return $container->getLocator()->product()->facade();
+        };
+
+        return $container;
+    }
 
 }

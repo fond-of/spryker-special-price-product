@@ -3,6 +3,7 @@
 namespace FondOfSpryker\Zed\SpecialPriceProduct\Business\Manager;
 
 use Generated\Shared\Transfer\CartChangeTransfer;
+use Generated\Shared\Transfer\ItemTransfer;
 
 interface PriceManagerInterface
 {
@@ -11,5 +12,12 @@ interface PriceManagerInterface
      *
      * @return \Generated\Shared\Transfer\CartChangeTransfer
      */
-    public function addPriceToItems(CartChangeTransfer $cartChangeTransfer);
+    public function addSpecialPriceToItems(CartChangeTransfer $cartChangeTransfer);
+
+    /**
+     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
+     *
+     * @return bool
+     */
+    public function isSpecialPriceForItemValid(ItemTransfer $itemTransfer);
 }
