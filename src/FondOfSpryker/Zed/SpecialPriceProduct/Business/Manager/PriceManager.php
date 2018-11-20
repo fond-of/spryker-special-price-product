@@ -45,14 +45,20 @@ class PriceManager implements PriceManagerInterface
      */
     public function isSpecialPriceForItemValid(ItemTransfer $itemTransfer)
     {
-
         if ( ( $itemTransfer->getSpecialPrice() == null || $itemTransfer->getSpecialPrice() == '' )
-        || $itemTransfer->getSpecialPriceFrom() == null || $itemTransfer->getSpecialPriceFrom() == '') {
+            || $itemTransfer->getSpecialPriceFrom() == null || $itemTransfer->getSpecialPriceFrom() == '') {
             return false;
         }
 
+        $dateTimeCurrent = new DateTime();
+        $dateTimeFrom = new DateTime($itemTransfer->getSpecialPriceFrom());
+
+        if ($dateTimeFrom > $dateTimeCurrent) {
+            return false;
+        }
+
+
         if ($itemTransfer->getSpecialPriceTo() != null || $itemTransfer->getSpecialPriceTo() != '') {
-            $dateTimeCurrent = new DateTime();
             $dateTimeTo = new DateTime($itemTransfer->getSpecialPriceTo());
             if ($dateTimeTo < $dateTimeCurrent) {
                 return false;
