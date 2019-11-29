@@ -2,9 +2,9 @@
 
 namespace FondOfSpryker\Zed\SpecialPriceProduct\Business\Manager;
 
+use DateTime;
 use Generated\Shared\Transfer\CartChangeTransfer;
 use Generated\Shared\Transfer\ItemTransfer;
-use DateTime;
 
 class PriceManager implements PriceManagerInterface
 {
@@ -16,11 +16,9 @@ class PriceManager implements PriceManagerInterface
     public function addSpecialPriceToItems(CartChangeTransfer $cartChangeTransfer)
     {
         foreach ($cartChangeTransfer->getItems() as $itemTransfer) {
-
             if ($this->isSpecialPriceForItemValid($itemTransfer)) {
                 $this->applySpecialPrice($itemTransfer);
             }
-
         }
 
         return $cartChangeTransfer;
@@ -34,6 +32,7 @@ class PriceManager implements PriceManagerInterface
     protected function applySpecialPrice(ItemTransfer $itemTransfer)
     {
         $itemTransfer->setUnitGrossPrice($itemTransfer->getSpecialPrice());
+        $itemTransfer->setUnitNetPrice($itemTransfer->getSpecialPrice());
 
         return $itemTransfer;
     }
@@ -45,7 +44,7 @@ class PriceManager implements PriceManagerInterface
      */
     public function isSpecialPriceForItemValid(ItemTransfer $itemTransfer)
     {
-        if ( ( $itemTransfer->getSpecialPrice() == null || $itemTransfer->getSpecialPrice() == '' )
+        if (( $itemTransfer->getSpecialPrice() == null || $itemTransfer->getSpecialPrice() == '' )
             || $itemTransfer->getSpecialPriceFrom() == null || $itemTransfer->getSpecialPriceFrom() == '') {
             return false;
         }
@@ -57,7 +56,6 @@ class PriceManager implements PriceManagerInterface
             return false;
         }
 
-
         if ($itemTransfer->getSpecialPriceTo() != null || $itemTransfer->getSpecialPriceTo() != '') {
             $dateTimeTo = new DateTime($itemTransfer->getSpecialPriceTo());
             if ($dateTimeTo < $dateTimeCurrent) {
@@ -67,5 +65,4 @@ class PriceManager implements PriceManagerInterface
 
         return true;
     }
-
 }
