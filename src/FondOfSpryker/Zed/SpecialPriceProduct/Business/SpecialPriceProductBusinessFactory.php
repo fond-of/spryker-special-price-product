@@ -2,10 +2,10 @@
 
 namespace FondOfSpryker\Zed\SpecialPriceProduct\Business;
 
-use FondOfSpryker\Zed\SpecialPriceProduct\SpecialPriceProductDependencyProvider;
-use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 use FondOfSpryker\Zed\SpecialPriceProduct\Business\Expander\ProductExpander;
 use FondOfSpryker\Zed\SpecialPriceProduct\Business\Manager\PriceManager;
+use FondOfSpryker\Zed\SpecialPriceProduct\SpecialPriceProductDependencyProvider;
+use Spryker\Zed\Kernel\Business\AbstractBusinessFactory;
 
 /**
  * @method \FondOfSpryker\Zed\SpecialPriceProduct\Business\SpecialPriceProductBusinessFactory getFactory()

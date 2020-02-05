@@ -21,7 +21,6 @@ class SpecialPriceProductFacade extends AbstractFacade implements SpecialPricePr
     }
 
     /**
-     *
      * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
      *
      * @return \Generated\Shared\Transfer\CartChangeTransfer

@@ -7,7 +7,7 @@ use Spryker\Zed\Kernel\Container;
 
 class SpecialPriceProductDependencyProvider extends AbstractBundleDependencyProvider
 {
-    const PRODUCT_FACADE = 'PRODUCT_FACADE';
+    public const PRODUCT_FACADE = 'PRODUCT_FACADE';
 
     /**
      * @param \Spryker\Zed\Kernel\Container $container
@@ -34,5 +34,4 @@ class SpecialPriceProductDependencyProvider extends AbstractBundleDependencyProv
 
         return $container;
     }
-
 }

@@ -3,9 +3,8 @@
 namespace FondOfSpryker\Zed\SpecialPriceProduct\Business\Expander;
 
 use Generated\Shared\Transfer\CartChangeTransfer;
-use Generated\Shared\Transfer\ItemTransfer;
-use Spryker\Zed\Product\Business\ProductFacadeInterface;
 use Spryker\Yves\Kernel\AbstractBundleConfig;
+use Spryker\Zed\Product\Business\ProductFacadeInterface;
 
 class ProductExpander implements ProductExpanderInterface
 {
@@ -20,8 +19,6 @@ class ProductExpander implements ProductExpanderInterface
     protected $productFacade;
 
     /**
-     * ProductExpander constructor.
-     *
      * @param \Spryker\Zed\Product\Business\ProductFacadeInterface $productFacade
      * @param \Spryker\Yves\Kernel\AbstractBundleConfig $config
      */

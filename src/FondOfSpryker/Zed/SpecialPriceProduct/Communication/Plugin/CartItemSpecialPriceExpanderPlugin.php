@@ -6,10 +6,14 @@ use Generated\Shared\Transfer\CartChangeTransfer;
 use Spryker\Zed\Cart\Dependency\ItemExpanderPluginInterface;
 use Spryker\Zed\Kernel\Communication\AbstractPlugin;
 
+/**
+ * @method \FondOfSpryker\Zed\SpecialPriceProduct\SpecialPriceProductConfig getConfig()
+ * @method \FondOfSpryker\Zed\SpecialPriceProduct\Business\SpecialPriceProductFacadeInterface getFacade()
+ */
 class CartItemSpecialPriceExpanderPlugin extends AbstractPlugin implements ItemExpanderPluginInterface
 {
     /**
-     * {@inheritdoc}
+     * {@inheritDoc}
      *
      * @api
      *
